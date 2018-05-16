@@ -1,0 +1,29 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "a todo website",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haochengz/todo.git"
+  },
+  "keywords": [
+    "todo"
+  ],
+  "author": "hczhao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haochengz/todo/issues"
+  },
+  "homepage": "https://github.com/haochengz/todo#readme",
+  "dependencies": {
+    "css-loader": "^0.28.11",
+    "vue": "^2.5.16",
+    "vue-loader": "^15.0.11",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.8.3"
+  }
+}
