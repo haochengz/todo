@@ -1,7 +1,7 @@
 
 <template>
     <div class="helper">
-        <span class="left"></span>
+        <span class="left">{{unFinishListLen}} items</span>
         <span class="tabs">
             <span
                 v-for="state in states"
@@ -24,6 +24,10 @@
             filter: {
                 type: String,
                 required: true,
+            },
+            items: {
+                type: Array,
+                required: true
             }
         },
         data() {
@@ -34,6 +38,11 @@
         methods: {
             clearAllCompleted() {},
             toggleFilter() {}
+        },
+        computed: {
+            unFinishListLen() {
+                return this.items.filter(todo => !todo.completed).length
+            }
         }
     }
 </script>

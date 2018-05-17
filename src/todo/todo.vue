@@ -14,7 +14,7 @@
                 :key="item.id"
                 @del="deleteItem"
         />
-        <tabs :filter="filter"></tabs>
+        <tabs :filter="filter" :items="items"></tabs>
     </section>
 </template>
 
