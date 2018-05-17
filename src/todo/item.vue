@@ -19,7 +19,9 @@
             }
         },
         methods: {
-            deleteTodo() {}
+            deleteTodo() {
+                this.$emit('del', this.todo.id)
+            }
         },
         name: "item.vue"
     }
