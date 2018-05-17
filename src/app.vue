@@ -14,10 +14,4 @@
 </script>
 
 <style scoped>
-    #text {
-        color: purple;
-    }
-    body{
-        background-image: url("./assets/images/bg.jpg");
-    }
 </style>
