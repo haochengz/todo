@@ -1,5 +1,7 @@
 
 const path = require('path');
+const HTMLPlugin = require('html-webpack-plugin')
+var webpack = require('webpack')
 
 const isDev = process.env === "development";
 
@@ -43,7 +45,15 @@ const config = {
                 ]
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: isDev ? '"developemnt"' : '"production"'
+            }
+        }),
+        new HTMLPlugin()
+    ]
 };
 
 if(isDev) {
