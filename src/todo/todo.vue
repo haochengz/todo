@@ -17,6 +17,7 @@
         <tabs
                 :filter="filter" :items="items"
                 @toggle="toggleFilter"
+                @clearAll="clearAll"
         />
     </section>
 </template>
@@ -59,6 +60,9 @@
             },
             toggleFilter(state) {
                 this.filter = state
+            },
+            clearAll() {
+                this.items = this.items.filter(todo => !todo.completed)
             }
         }
     }

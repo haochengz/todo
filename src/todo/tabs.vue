@@ -36,7 +36,9 @@
             }
         },
         methods: {
-            clearAllCompleted() {},
+            clearAllCompleted() {
+                this.$emit('clearAll')
+            },
             toggleFilter(state) {
                 this.$emit('toggle', state)
             }
