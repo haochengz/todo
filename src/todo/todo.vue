@@ -8,11 +8,25 @@
             placeholder="What's next?"
             @keyup.enter="addTodo"
         />
+        <Item :todo="todo"></Item>
     </section>
 </template>
 
 <script>
+    import Item from './item.vue'
     export default {
+        data() {
+            return {
+                todo: {
+                    id: 0,
+                    content: 'this is todo',
+                    completed: false,
+                }
+            }
+        },
+        components: {
+            Item,
+        },
         methods: {
             addTodo() {
 
