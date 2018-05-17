@@ -1,7 +1,7 @@
 
 const path = require('path');
-const HTMLPlugin = require('html-webpack-plugin')
-var webpack = require('webpack')
+const HTMLPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 const isDev = process.env === "development";
 
@@ -57,13 +57,19 @@ const config = {
 };
 
 if(isDev) {
+    config.devtool = '#cheap-module-eval-source-map';
     config.devServer = {
         port: '8080',
         host: '0.0.0.0',
         overlay: {
             errors: true,
-        }
-    }
+        },
+        hot: true
+    };
+    config.plugins.push(
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
+    )
 }
 
 

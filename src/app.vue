@@ -7,7 +7,7 @@
         name: "main",
         data() {
             return {
-                text: "ABC"
+                text: "ABCDE"
             }
         }
     }
