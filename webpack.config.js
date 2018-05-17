@@ -1,7 +1,9 @@
 
 const path = require('path');
 
-module.exports = {
+const isDev = process.env === "development";
+
+const config = {
     entry: path.join(__dirname, 'src/index.js'),
     output: {
         filename: 'bundle.js',
@@ -43,3 +45,16 @@ module.exports = {
         ]
     }
 };
+
+if(isDev) {
+    config.devServer = {
+        port: '8080',
+        host: '0.0.0.0',
+        overlay: {
+            errors: true,
+        }
+    }
+}
+
+
+module.exports = config;
