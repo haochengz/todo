@@ -37,7 +37,9 @@
         },
         methods: {
             clearAllCompleted() {},
-            toggleFilter() {}
+            toggleFilter(state) {
+                this.$emit('toggle', state)
+            }
         },
         computed: {
             unFinishListLen() {

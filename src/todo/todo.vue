@@ -9,12 +9,15 @@
             @keyup.enter="addTodo"
         />
         <Item
-                v-for="item in items"
+                v-for="item in filteredItems"
                 :todo="item"
                 :key="item.id"
                 @del="deleteItem"
         />
-        <tabs :filter="filter" :items="items"></tabs>
+        <tabs
+                :filter="filter" :items="items"
+                @toggle="toggleFilter"
+        />
     </section>
 </template>
 
@@ -33,6 +36,15 @@
             Item,
             Tabs,
         },
+        computed: {
+            filteredItems() {
+                if(this.filter === 'all'){
+                    return this.items
+                }
+                const completed = this.filter === 'completed'
+                return this.items.filter(todo => completed === todo.completed)
+            }
+        },
         methods: {
             addTodo(e) {
                 this.items.unshift({
@@ -44,6 +56,9 @@
             },
             deleteItem(id) {
                 this.items.splice(this.items.findIndex(todo => todo.id === id), 1)
+            },
+            toggleFilter(state) {
+                this.filter = state
             }
         }
     }
